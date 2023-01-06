@@ -8,22 +8,28 @@
 import SwiftUI
 
 struct PersonView: View {
-//    let person: Person
+    let person: Person
     
     var body: some View {
         NavigationView{
-            ScrollView{
-                VStack{
+            Form {
+                Section {
+                    VStack(alignment: .leading) {
+                        Text("**Name:** \(person.name ?? "Unknown") \(person.lastName ?? "Unknown")")
+                        Text("**Ocupação:** \(person.occupation ?? "Unknown")")
+                    }
                     
+                    VStack(alignment: .leading) {
+                        Text("**First Meet:** \(person.whereMeet ?? "Unknonw")")
+                    }
                 }
             }
-            .navigationTitle("Nome 1")
         }
     }
 }
 
-struct PersonView_Previews: PreviewProvider {
-    static var previews: some View {
-        PersonView()
-    }
-}
+//struct PersonView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PersonView()
+//    }
+//}

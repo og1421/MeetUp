@@ -8,13 +8,33 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.managedObjectContext) var moc
+    @FetchRequest(sortDescriptors: [
+        SortDescriptor(\.name),
+        SortDescriptor(\.occupation)
+    ]) var persons: FetchedResults<Person>
     
     @State private var showingAddScreen = false
     
     var body: some View {
         NavigationView{
-            List{
-                Text("Item 1")
+            List(persons){ person in
+                NavigationLink{
+                    PersonView(person: person)
+                } label: {
+                    HStack {
+                        Text("👷🏼‍♀️")
+                        
+                        VStack(alignment: .leading){
+                            Text(person.name ?? "Unknown Person")
+                                .font(.headline)
+                            
+                            Text(person.occupation ?? "Unknown Occupation")
+                                .foregroundColor(.secondary)
+                        }
+                    }
+                }
+
             }
             .navigationTitle("Meetup")
             .toolbar {
