@@ -9,6 +9,9 @@ import CoreImage
 import SwiftUI
 
 struct AddPersonView: View {
+    @Environment(\.managedObjectContext) var moc
+    @Environment(\.dismiss) var dismiss
+    
     @State private var image: Image?
     
     @State private var name = ""
@@ -66,14 +69,25 @@ struct AddPersonView: View {
                 .navigationTitle("Add person")
                 .toolbar{
                     ToolbarItem(placement: .navigationBarLeading){
-                        Button("Cancel"){
-                            //dismiss the view
+                        Button{
+                            dismiss()
+                        } label: {
+                            Label("cancel", systemImage: "xmark")
                         }
                     }
                     
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button("Save"){
-                            //Sava in Core Data
+                            let newPerson = Person(context: moc)
+                            newPerson.id = UUID()
+                            newPerson.name = name
+                            newPerson.lastName = lastName
+                            newPerson.genre = genre
+                            newPerson.occupation = occupation
+                            newPerson.whereMeet = whereMeet
+                            
+                            try? moc.save()
+                            dismiss()
                         }
                     }
                 }

@@ -15,6 +15,9 @@
 		8547F2CD2968B59000B1E3E5 /* MeetUpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8547F2CC2968B59000B1E3E5 /* MeetUpUITests.swift */; };
 		8547F2CF2968B59000B1E3E5 /* MeetUpUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8547F2CE2968B59000B1E3E5 /* MeetUpUITestsLaunchTests.swift */; };
 		8547F2DE2968BC1B00B1E3E5 /* AddPersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8547F2DD2968BC1B00B1E3E5 /* AddPersonView.swift */; };
+		8547F2E02968D3C700B1E3E5 /* PersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8547F2DF2968D3C700B1E3E5 /* PersonView.swift */; };
+		8547F2E62968D73500B1E3E5 /* Data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8547F2E42968D73500B1E3E5 /* Data.xcdatamodeld */; };
+		8547F2E82968D9AB00B1E3E5 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8547F2E72968D9AB00B1E3E5 /* Persistence.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		8547F2CC2968B59000B1E3E5 /* MeetUpUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetUpUITests.swift; sourceTree = "<group>"; };
 		8547F2CE2968B59000B1E3E5 /* MeetUpUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetUpUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		8547F2DD2968BC1B00B1E3E5 /* AddPersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPersonView.swift; sourceTree = "<group>"; };
+		8547F2DF2968D3C700B1E3E5 /* PersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonView.swift; sourceTree = "<group>"; };
+		8547F2E52968D73500B1E3E5 /* Person.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Person.xcdatamodel; sourceTree = "<group>"; };
+		8547F2E72968D9AB00B1E3E5 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +103,7 @@
 		8547F2AF2968B58E00B1E3E5 /* MeetUp */ = {
 			isa = PBXGroup;
 			children = (
+				8547F2E12968D40A00B1E3E5 /* Data */,
 				8547F2DB2968B92A00B1E3E5 /* View */,
 				8547F2DC2968B93100B1E3E5 /* Model */,
 				8547F2B02968B58E00B1E3E5 /* MeetUpApp.swift */,
@@ -137,6 +144,7 @@
 			children = (
 				8547F2B22968B58E00B1E3E5 /* ContentView.swift */,
 				8547F2DD2968BC1B00B1E3E5 /* AddPersonView.swift */,
+				8547F2DF2968D3C700B1E3E5 /* PersonView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -144,8 +152,17 @@
 		8547F2DC2968B93100B1E3E5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8547F2E72968D9AB00B1E3E5 /* Persistence.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		8547F2E12968D40A00B1E3E5 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				8547F2E42968D73500B1E3E5 /* Data.xcdatamodeld */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,7 +296,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8547F2B32968B58E00B1E3E5 /* ContentView.swift in Sources */,
+				8547F2E02968D3C700B1E3E5 /* PersonView.swift in Sources */,
 				8547F2B12968B58E00B1E3E5 /* MeetUpApp.swift in Sources */,
+				8547F2E82968D9AB00B1E3E5 /* Persistence.swift in Sources */,
+				8547F2E62968D73500B1E3E5 /* Data.xcdatamodeld in Sources */,
 				8547F2DE2968BC1B00B1E3E5 /* AddPersonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -624,6 +644,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8547F2E42968D73500B1E3E5 /* Data.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8547F2E52968D73500B1E3E5 /* Person.xcdatamodel */,
+			);
+			currentVersion = 8547F2E52968D73500B1E3E5 /* Person.xcdatamodel */;
+			path = Data.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8547F2A52968B58E00B1E3E5 /* Project object */;
 }
