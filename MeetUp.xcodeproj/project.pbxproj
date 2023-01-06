@@ -14,6 +14,7 @@
 		8547F2C32968B59000B1E3E5 /* MeetUpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8547F2C22968B59000B1E3E5 /* MeetUpTests.swift */; };
 		8547F2CD2968B59000B1E3E5 /* MeetUpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8547F2CC2968B59000B1E3E5 /* MeetUpUITests.swift */; };
 		8547F2CF2968B59000B1E3E5 /* MeetUpUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8547F2CE2968B59000B1E3E5 /* MeetUpUITestsLaunchTests.swift */; };
+		8547F2DE2968BC1B00B1E3E5 /* AddPersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8547F2DD2968BC1B00B1E3E5 /* AddPersonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		8547F2C82968B59000B1E3E5 /* MeetUpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeetUpUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8547F2CC2968B59000B1E3E5 /* MeetUpUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetUpUITests.swift; sourceTree = "<group>"; };
 		8547F2CE2968B59000B1E3E5 /* MeetUpUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetUpUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		8547F2DD2968BC1B00B1E3E5 /* AddPersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPersonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,8 +97,9 @@
 		8547F2AF2968B58E00B1E3E5 /* MeetUp */ = {
 			isa = PBXGroup;
 			children = (
+				8547F2DB2968B92A00B1E3E5 /* View */,
+				8547F2DC2968B93100B1E3E5 /* Model */,
 				8547F2B02968B58E00B1E3E5 /* MeetUpApp.swift */,
-				8547F2B22968B58E00B1E3E5 /* ContentView.swift */,
 				8547F2B42968B59000B1E3E5 /* Assets.xcassets */,
 				8547F2B62968B59000B1E3E5 /* MeetUp.entitlements */,
 				8547F2B72968B59000B1E3E5 /* Preview Content */,
@@ -127,6 +130,22 @@
 				8547F2CE2968B59000B1E3E5 /* MeetUpUITestsLaunchTests.swift */,
 			);
 			path = MeetUpUITests;
+			sourceTree = "<group>";
+		};
+		8547F2DB2968B92A00B1E3E5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8547F2B22968B58E00B1E3E5 /* ContentView.swift */,
+				8547F2DD2968BC1B00B1E3E5 /* AddPersonView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8547F2DC2968B93100B1E3E5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +280,7 @@
 			files = (
 				8547F2B32968B58E00B1E3E5 /* ContentView.swift in Sources */,
 				8547F2B12968B58E00B1E3E5 /* MeetUpApp.swift in Sources */,
+				8547F2DE2968BC1B00B1E3E5 /* AddPersonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
