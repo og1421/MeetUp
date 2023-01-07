@@ -9,10 +9,13 @@ import CoreImage
 import SwiftUI
 
 struct AddPersonView: View {
+    @StateObject private var viewModel = AddPersonViewModel()
+    
     @Environment(\.managedObjectContext) var moc
     @Environment(\.dismiss) var dismiss
     
     @State private var image: Image?
+    @State private var inputImage: UIImage?
     
     @State private var name = ""
     @State private var lastName = ""
@@ -90,6 +93,9 @@ struct AddPersonView: View {
                             dismiss()
                         }
                     }
+                }
+                .sheet(isPresented: $showingImagePicker){
+                    ImagePicker(image: $image)
                 }
             }
         }
