@@ -88,17 +88,48 @@ struct AddPersonView: View {
                             newPerson.genre = genre
                             newPerson.occupation = occupation
                             newPerson.whereMeet = whereMeet
+                            newPerson.imageId = UUID()
+                            
+                            
+                            saveImage(imageId: newPerson.imageId)
                             
                             try? moc.save()
                             dismiss()
                         }
                     }
                 }
+                .onChange(of: inputImage) { _ in loadImage() }
                 .sheet(isPresented: $showingImagePicker){
-                    ImagePicker(image: $image)
+                    imagePicker(image: $inputImage)
                 }
             }
         }
+    }
+    
+    func loadImage() {
+        guard let inputImage = inputImage else { return }
+        
+        image = Image(uiImage: inputImage)
+    }
+    
+    
+    func saveImage(imageId id: UUID?) {
+                
+        let url = getDocumentsDirectory().appendingPathComponent("\(id).jpeg")
+
+        guard let data = inputImage?.jpegData(compressionQuality: 0.8) else { return }
+        try? data.write(to: url, options: [.atomic, .completeFileProtection])
+        
+        print(id ?? "Unknown image")
+        
+    }
+    
+    func getDocumentsDirectory() -> URL {
+        // find all possible documents directories for this user
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+
+        // just send back the first one, which ought to be the only one
+        return paths[0]
     }
 }
 
