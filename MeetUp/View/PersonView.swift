@@ -12,20 +12,39 @@ struct PersonView: View {
     
     var body: some View {
         NavigationView{
-            Form {
-                Section {
-                    VStack(alignment: .leading) {
-                        Text("**Name:** \(person.name ?? "Unknown") \(person.lastName ?? "Unknown")")
-                        Text("**Ocupação:** \(person.occupation ?? "Unknown")")
-                    }
+            VStack{
+                let image = loadImage(named: "\(person.imageId).jpeg", from: FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!)
+                
+                if let uiImage = image {
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .scaledToFit()
                     
-                    VStack(alignment: .leading) {
-                        Text("**First Meet:** \(person.whereMeet ?? "Unknonw")")
+                } else {
+                    Text("No Image")
+                }
+
+                Form {
+                    Section {
+                        VStack(alignment: .leading) {
+                            Text("**Name:** \(person.name ?? "Unknown") \(person.lastName ?? "Unknown")")
+                            Text("**Ocupação:** \(person.occupation ?? "Unknown")")
+                        }
+                        
+                        VStack(alignment: .leading) {
+                            Text("**First Meet:** \(person.whereMeet ?? "Unknonw")")
+                        }
                     }
                 }
             }
         }
     }
+    
+    func loadImage(named: String ,from directory: URL) -> UIImage? {
+        let fileURL = directory.appendingPathComponent(named)
+        return UIImage(contentsOfFile: fileURL.path)
+    }
+
 }
 
 //struct PersonView_Previews: PreviewProvider {

@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import Foundation
+import UIKit
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) var moc
@@ -15,6 +17,7 @@ struct ContentView: View {
     ]) var persons: FetchedResults<Person>
     
     @State private var showingAddScreen = false
+    @State private var image: Image?
     
     var body: some View {
         NavigationView{
@@ -23,8 +26,18 @@ struct ContentView: View {
                     PersonView(person: person)
                 } label: {
                     HStack {
-                        Text("👷🏼‍♀️")
+                        let image = loadImage(named: "\(person.imageId).jpeg", from: FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!)
                         
+                        if let uiImage = image {
+                            Image(uiImage: uiImage)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 60, height: 60)
+                                
+                        } else {
+                            Text("No Image")
+                        }
+                                                
                         VStack(alignment: .leading){
                             Text(person.name ?? "Unknown Person")
                                 .font(.headline)
@@ -50,6 +63,11 @@ struct ContentView: View {
                 AddPersonView()
             }
         }
+    }
+    
+    func loadImage(named: String ,from directory: URL) -> UIImage? {
+        let fileURL = directory.appendingPathComponent(named)
+        return UIImage(contentsOfFile: fileURL.path)
     }
 }
 
